@@ -15,6 +15,7 @@ export const TodoItem = ({ todo, index }: TodoItemProps) => {
         id={`todo-${index}`}
         type="checkbox"
         onChange={handleCheckboxChange}
+        checked={todo.wasCompleted}
       />
       <label htmlFor={`todo-${index}`}>{todo.text}</label>
     </li>
