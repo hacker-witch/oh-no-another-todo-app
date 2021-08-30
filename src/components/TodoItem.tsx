@@ -1,4 +1,5 @@
 import { FormEvent } from "react";
+import styled from "styled-components";
 import { Todo } from "types/Todo";
 
 type TodoItemProps = {
@@ -30,7 +31,9 @@ export const TodoItem = ({
         onChange={handleCheckboxChange}
         checked={todo.wasCompleted}
       />
-      <label htmlFor={`todo-${index}`}>{todo.text}</label>
+      <Label htmlFor={`todo-${index}`} wasCompleted={todo.wasCompleted}>
+        {todo.text}
+      </Label>
       <button
         type="button"
         aria-label="Delete this todo"
@@ -41,3 +44,11 @@ export const TodoItem = ({
     </li>
   );
 };
+
+type LabelProps = {
+  wasCompleted: boolean;
+};
+
+const Label = styled.label<LabelProps>`
+  text-decoration: ${(props) => (props.wasCompleted ? "line-through" : "none")};
+`;
