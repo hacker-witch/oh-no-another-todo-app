@@ -6,6 +6,18 @@ export const App = () => {
   const [newTodoText, setNewTodoText] = useState("");
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  const toggleTodo = (index: number) => {
+    const newTodoList = todos.map((todo, currentIndex) => {
+      if (currentIndex === index) {
+        return { ...todo, wasCompleted: !todo.wasCompleted };
+      }
+
+      return todo;
+    });
+
+    setTodos(newTodoList);
+  };
+
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
     setNewTodoText(e.currentTarget.value);
   };
@@ -29,7 +41,7 @@ export const App = () => {
           placeholder="Create a new todo..."
         />
       </form>
-      <TodoList todos={todos} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} />
     </div>
   );
 };

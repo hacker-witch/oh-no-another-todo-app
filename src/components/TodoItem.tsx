@@ -4,10 +4,13 @@ import { Todo } from "types/Todo";
 type TodoItemProps = {
   todo: Todo;
   index: number;
+  toggleTodo: (index: number) => void;
 };
 
-export const TodoItem = ({ todo, index }: TodoItemProps) => {
-  const handleCheckboxChange = (e: FormEvent<HTMLInputElement>) => {};
+export const TodoItem = ({ todo, index, toggleTodo }: TodoItemProps) => {
+  const handleCheckboxChange = (e: FormEvent<HTMLInputElement>) => {
+    toggleTodo(index);
+  };
 
   return (
     <li>
