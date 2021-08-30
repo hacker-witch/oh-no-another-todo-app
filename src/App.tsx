@@ -1,9 +1,10 @@
 import { FormEvent, useState } from "react";
 import { TodoList } from "components/TodoList";
+import { Todo } from "types/Todo";
 
 export const App = () => {
   const [newTodo, setNewTodo] = useState("");
-  const [todos, setTodos] = useState<string[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const handleNewTodoChange = (e: FormEvent<HTMLInputElement>) => {
     setNewTodo(e.currentTarget.value);
@@ -11,7 +12,7 @@ export const App = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTodos([...todos, newTodo]);
+    setTodos([...todos, { text: newTodo }]);
     setNewTodo("");
   };
 

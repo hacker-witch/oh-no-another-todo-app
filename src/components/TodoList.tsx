@@ -1,7 +1,8 @@
 import { TodoItem } from "components/TodoItem";
+import { Todo } from "types/Todo";
 
 type TodoListProps = {
-  todos: string[];
+  todos: Todo[];
 };
 
 export const TodoList = ({ todos }: TodoListProps) => (
