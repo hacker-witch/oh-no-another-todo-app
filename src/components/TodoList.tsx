@@ -7,7 +7,7 @@ type TodoListProps = {
 export const TodoList = ({ todos }: TodoListProps) => (
   <ul>
     {todos.map((todo, index) => (
-      <TodoItem key={index} todo={todo} />
+      <TodoItem key={index} todo={todo} index={index} />
     ))}
   </ul>
 );
