@@ -6,6 +6,10 @@ export const App = () => {
   const [newTodoText, setNewTodoText] = useState("");
   const [todos, setTodos] = useState<Todo[]>([]);
 
+  const addTodo = (todo: Todo) => {
+    setTodos([...todos, { text: newTodoText, wasCompleted: false }]);
+  };
+
   const toggleTodo = (index: number) => {
     const newTodoList = todos.map((todo, currentIndex) => {
       if (currentIndex === index) {
@@ -32,7 +36,7 @@ export const App = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTodos([...todos, { text: newTodoText, wasCompleted: false }]);
+    addTodo({ text: newTodoText, wasCompleted: false });
     setNewTodoText("");
   };
 
