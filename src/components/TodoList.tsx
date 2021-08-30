@@ -1,3 +1,5 @@
+import { TodoItem } from "components/TodoItem";
+
 type TodoListProps = {
   todos: string[];
 };
@@ -5,7 +7,7 @@ type TodoListProps = {
 export const TodoList = ({ todos }: TodoListProps) => (
   <ul>
     {todos.map((todo, index) => (
-      <li key={index}>{todo}</li>
+      <TodoItem key={index} todo={todo} />
     ))}
   </ul>
 );
