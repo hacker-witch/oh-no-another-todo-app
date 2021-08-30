@@ -18,6 +18,14 @@ export const App = () => {
     setTodos(newTodoList);
   };
 
+  const deleteTodo = (index: number) => {
+    const newTodoList = todos.filter(
+      (todo, currentIndex) => currentIndex !== index
+    );
+
+    setTodos(newTodoList);
+  };
+
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
     setNewTodoText(e.currentTarget.value);
   };
@@ -41,7 +49,7 @@ export const App = () => {
           placeholder="Create a new todo..."
         />
       </form>
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </div>
   );
 };
