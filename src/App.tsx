@@ -12,7 +12,7 @@ export const App = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTodos([...todos, { text: newTodoText }]);
+    setTodos([...todos, { text: newTodoText, wasCompleted: false }]);
     setNewTodoText("");
   };
 
