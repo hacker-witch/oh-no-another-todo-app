@@ -5,7 +5,7 @@ export const App = () => {
   const [newTodo, setNewTodo] = useState("");
   const [todos, setTodos] = useState<string[]>([]);
 
-  const handleChange = (e: FormEvent<HTMLInputElement>) => {
+  const handleNewTodoChange = (e: FormEvent<HTMLInputElement>) => {
     setNewTodo(e.currentTarget.value);
   };
 
@@ -24,7 +24,7 @@ export const App = () => {
           name="addTodo"
           aria-label="Write a new todo item"
           value={newTodo}
-          onChange={handleChange}
+          onChange={handleNewTodoChange}
           placeholder="Create a new todo..."
         />
       </form>
