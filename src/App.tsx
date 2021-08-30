@@ -3,17 +3,17 @@ import { TodoList } from "components/TodoList";
 import { Todo } from "types/Todo";
 
 export const App = () => {
-  const [newTodo, setNewTodo] = useState("");
+  const [newTodoText, setNewTodoText] = useState("");
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  const handleNewTodoChange = (e: FormEvent<HTMLInputElement>) => {
-    setNewTodo(e.currentTarget.value);
+  const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
+    setNewTodoText(e.currentTarget.value);
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTodos([...todos, { text: newTodo }]);
-    setNewTodo("");
+    setTodos([...todos, { text: newTodoText }]);
+    setNewTodoText("");
   };
 
   return (
@@ -24,8 +24,8 @@ export const App = () => {
           type="text"
           name="addTodo"
           aria-label="Write a new todo item"
-          value={newTodo}
-          onChange={handleNewTodoChange}
+          value={newTodoText}
+          onChange={handleNewTodoTextChange}
           placeholder="Create a new todo..."
         />
       </form>
