@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import { Todo } from "types/Todo";
 
 type TodoItemProps = {
@@ -5,9 +6,17 @@ type TodoItemProps = {
   index: number;
 };
 
-export const TodoItem = ({ todo, index }: TodoItemProps) => (
-  <li>
-    <input id={`todo-${index}`} type="checkbox" />
-    <label htmlFor={`todo-${index}`}>{todo.text}</label>
-  </li>
-);
+export const TodoItem = ({ todo, index }: TodoItemProps) => {
+  const handleCheckboxChange = (e: FormEvent<HTMLInputElement>) => {};
+
+  return (
+    <li>
+      <input
+        id={`todo-${index}`}
+        type="checkbox"
+        onChange={handleCheckboxChange}
+      />
+      <label htmlFor={`todo-${index}`}>{todo.text}</label>
+    </li>
+  );
+};
