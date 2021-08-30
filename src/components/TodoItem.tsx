@@ -21,6 +21,9 @@ export const TodoItem = ({ todo, index, toggleTodo }: TodoItemProps) => {
         checked={todo.wasCompleted}
       />
       <label htmlFor={`todo-${index}`}>{todo.text}</label>
+      <button type="button" aria-label="Delete this todo">
+        &times;
+      </button>
     </li>
   );
 };
