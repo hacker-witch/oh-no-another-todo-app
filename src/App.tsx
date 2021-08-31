@@ -75,6 +75,7 @@ export const App = () => {
   return (
     <div>
       <h1>Todo</h1>
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -85,12 +86,15 @@ export const App = () => {
           placeholder="Create a new todo..."
         />
       </form>
+
       <TodoList
         todos={todos}
         toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
         moveTodo={moveTodo}
       />
+
+      <p>Drag and drop to reorder list</p>
     </div>
   );
 };
