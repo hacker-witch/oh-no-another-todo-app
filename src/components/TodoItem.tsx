@@ -28,8 +28,8 @@ export const TodoItem = ({
 
   return (
     <Draggable draggableId={id} index={index}>
-      {() => (
-        <li>
+      {(provided) => (
+        <li {...provided.draggableProps} {...provided.dragHandleProps}>
           <input
             id={id}
             type="checkbox"
