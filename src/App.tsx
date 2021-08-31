@@ -46,6 +46,22 @@ export const App = () => {
     setTodos(newTodoList);
   };
 
+  const moveTodo = (oldIndex: number, newIndex: number) => {
+    const reorderedTodos = todos.map((todo, index) => {
+      if (index === oldIndex) {
+        return todos[newIndex];
+      }
+
+      if (index === newIndex) {
+        return todos[oldIndex];
+      }
+
+      return todo;
+    });
+
+    setTodos(reorderedTodos);
+  };
+
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
     setNewTodoText(e.currentTarget.value);
   };
@@ -69,7 +85,12 @@ export const App = () => {
           placeholder="Create a new todo..."
         />
       </form>
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+      <TodoList
+        todos={todos}
+        toggleTodo={toggleTodo}
+        deleteTodo={deleteTodo}
+        moveTodo={moveTodo}
+      />
     </div>
   );
 };

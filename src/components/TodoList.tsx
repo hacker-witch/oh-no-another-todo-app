@@ -6,9 +6,15 @@ type TodoListProps = {
   todos: Todo[];
   toggleTodo: (index: number) => void;
   deleteTodo: (index: number) => void;
+  moveTodo: (oldIndex: number, newIndex: number) => void;
 };
 
-export const TodoList = ({ todos, toggleTodo, deleteTodo }: TodoListProps) => {
+export const TodoList = ({
+  todos,
+  toggleTodo,
+  deleteTodo,
+  moveTodo,
+}: TodoListProps) => {
   const handleDragEnd = (result: DropResult) => {
     const { destination, source, draggableId } = result;
 
@@ -23,6 +29,8 @@ export const TodoList = ({ todos, toggleTodo, deleteTodo }: TodoListProps) => {
     if (destinationItemIsEqualToSourceItem) {
       return;
     }
+
+    moveTodo(source.index, destination.index);
   };
 
   return (
