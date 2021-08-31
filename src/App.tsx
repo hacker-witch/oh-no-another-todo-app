@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import localforage from "localforage";
 import { TodoList } from "components/TodoList";
 import { Todo } from "types/Todo";
 
@@ -7,7 +8,9 @@ export const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodo = (todo: Todo) => {
-    setTodos([...todos, { text: newTodoText, wasCompleted: false }]);
+    const newTodos = [...todos, { text: newTodoText, wasCompleted: false }];
+    setTodos(newTodos);
+    localforage.setItem("todos", newTodos);
   };
 
   const toggleTodo = (index: number) => {
