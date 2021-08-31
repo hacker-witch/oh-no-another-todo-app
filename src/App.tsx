@@ -83,7 +83,9 @@ export const App = () => {
               todos={todos}
               toggleTodo={toggleTodo}
               deleteTodo={deleteTodo}
-            />
+            >
+              {provided.placeholder}
+            </TodoList>
           )}
         </Droppable>
       </DragDropContext>
