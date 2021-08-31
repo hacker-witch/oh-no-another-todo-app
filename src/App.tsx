@@ -57,9 +57,7 @@ export const App = () => {
     setNewTodoText("");
   };
 
-  const handleDragEnd = () => {
-    console.log("drag end");
-  };
+  const handleDragEnd = () => {};
 
   return (
     <div>
