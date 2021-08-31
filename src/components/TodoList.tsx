@@ -1,15 +1,20 @@
 import { TodoItem } from "components/TodoItem";
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
+import styled from "styled-components";
 import { Todo } from "types/Todo";
 
+export { StyledTodoList as TodoList };
+
 type TodoListProps = {
+  className?: string;
   todos: Todo[];
   toggleTodo: (index: number) => void;
   deleteTodo: (index: number) => void;
   moveTodo: (oldIndex: number, newIndex: number) => void;
 };
 
-export const TodoList = ({
+const TodoList = ({
+  className,
   todos,
   toggleTodo,
   deleteTodo,
@@ -37,7 +42,11 @@ export const TodoList = ({
     <DragDropContext onDragEnd={handleDragEnd}>
       <Droppable droppableId="todo-list">
         {(provided) => (
-          <ul {...provided.droppableProps} ref={provided.innerRef}>
+          <ul
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            className={className}
+          >
             {todos.map((todo, index) => (
               <TodoItem
                 key={index}
@@ -54,3 +63,7 @@ export const TodoList = ({
     </DragDropContext>
   );
 };
+
+const StyledTodoList = styled(TodoList)`
+  list-style-type: none;
+`;
