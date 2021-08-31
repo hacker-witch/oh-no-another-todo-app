@@ -24,17 +24,19 @@ export const TodoItem = ({
     deleteTodo(index);
   };
 
+  const id = `todo-${index}`;
+
   return (
-    <Draggable draggableId={`todo-${index}`} index={index}>
+    <Draggable draggableId={id} index={index}>
       {() => (
         <li>
           <input
-            id={`todo-${index}`}
+            id={id}
             type="checkbox"
             onChange={handleCheckboxChange}
             checked={todo.wasCompleted}
           />
-          <Label htmlFor={`todo-${index}`} wasCompleted={todo.wasCompleted}>
+          <Label htmlFor={id} wasCompleted={todo.wasCompleted}>
             {todo.text}
           </Label>
           <button
