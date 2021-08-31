@@ -17,10 +17,13 @@ export const App = () => {
     });
   }, []);
 
+  useEffect(() => {
+    localforage.setItem("todos", todos);
+  }, [todos]);
+
   const addTodo = (todo: Todo) => {
     const newTodos = [...todos, { text: newTodoText, wasCompleted: false }];
     setTodos(newTodos);
-    localforage.setItem("todos", newTodos);
   };
 
   const toggleTodo = (index: number) => {
