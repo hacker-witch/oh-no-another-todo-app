@@ -97,7 +97,8 @@ export const App = () => {
       <p>Drag and drop to reorder list</p>
       <p>
         Press <kbd>space</kbd> in a todo and move it with the arrow keys to
-        reorder the list with the keyboard
+        reorder the list with the keyboard. To confirm the reordering, press{" "}
+        <kbd>space</kbd> again.
       </p>
     </div>
   );
