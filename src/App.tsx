@@ -95,6 +95,10 @@ export const App = () => {
       />
 
       <p>Drag and drop to reorder list</p>
+      <p>
+        Press space in a todo and move it with the arrow keys to reorder the
+        list with the keyboard
+      </p>
     </div>
   );
 };
