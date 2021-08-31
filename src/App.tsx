@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import localforage from "localforage";
 import { TodoList } from "components/TodoList";
 import { Todo } from "types/Todo";
@@ -6,6 +6,16 @@ import { Todo } from "types/Todo";
 export const App = () => {
   const [newTodoText, setNewTodoText] = useState("");
   const [todos, setTodos] = useState<Todo[]>([]);
+
+  useEffect(() => {
+    localforage.getItem("todos").then((todos) => {
+      if (!todos) {
+        return;
+      }
+
+      setTodos(todos as Todo[]);
+    });
+  }, []);
 
   const addTodo = (todo: Todo) => {
     const newTodos = [...todos, { text: newTodoText, wasCompleted: false }];
