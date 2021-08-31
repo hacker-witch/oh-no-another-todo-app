@@ -1,6 +1,6 @@
 import { FormEvent, useState, useEffect } from "react";
 import localforage from "localforage";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragDropContext } from "react-beautiful-dnd";
 import { TodoList } from "components/TodoList";
 import { Todo } from "types/Todo";
 
@@ -73,19 +73,11 @@ export const App = () => {
         />
       </form>
       <DragDropContext onDragEnd={handleDragEnd}>
-        <Droppable droppableId="todo-list">
-          {(provided) => (
-            <TodoList
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-              todos={todos}
-              toggleTodo={toggleTodo}
-              deleteTodo={deleteTodo}
-            >
-              {provided.placeholder}
-            </TodoList>
-          )}
-        </Droppable>
+        <TodoList
+          todos={todos}
+          toggleTodo={toggleTodo}
+          deleteTodo={deleteTodo}
+        />
       </DragDropContext>
     </div>
   );

@@ -1,27 +1,28 @@
 import { TodoItem } from "components/TodoItem";
-import { forwardRef, ReactNode } from "react";
+import { Droppable } from "react-beautiful-dnd";
 import { Todo } from "types/Todo";
 
 type TodoListProps = {
-  children?: ReactNode;
   todos: Todo[];
   toggleTodo: (index: number) => void;
   deleteTodo: (index: number) => void;
 };
 
-export const TodoList = forwardRef<HTMLUListElement, TodoListProps>(
-  ({ children, todos, toggleTodo, deleteTodo }: TodoListProps, ref) => (
-    <ul ref={ref}>
-      {todos.map((todo, index) => (
-        <TodoItem
-          key={index}
-          todo={todo}
-          index={index}
-          toggleTodo={toggleTodo}
-          deleteTodo={deleteTodo}
-        />
-      ))}
-      {children}
-    </ul>
-  )
+export const TodoList = ({ todos, toggleTodo, deleteTodo }: TodoListProps) => (
+  <Droppable droppableId="todo-list">
+    {(provided) => (
+      <ul {...provided.droppableProps} ref={provided.innerRef}>
+        {todos.map((todo, index) => (
+          <TodoItem
+            key={index}
+            todo={todo}
+            index={index}
+            toggleTodo={toggleTodo}
+            deleteTodo={deleteTodo}
+          />
+        ))}
+        {provided.placeholder}
+      </ul>
+    )}
+  </Droppable>
 );
