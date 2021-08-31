@@ -1,5 +1,5 @@
 import { TodoItem } from "components/TodoItem";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd";
 import { Todo } from "types/Todo";
 
 type TodoListProps = {
@@ -9,7 +9,21 @@ type TodoListProps = {
 };
 
 export const TodoList = ({ todos, toggleTodo, deleteTodo }: TodoListProps) => {
-  const handleDragEnd = () => {};
+  const handleDragEnd = (result: DropResult) => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+  };
+
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <Droppable droppableId="todo-list">
