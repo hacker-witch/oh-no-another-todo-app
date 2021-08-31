@@ -16,7 +16,7 @@ export const TodoList = ({
   moveTodo,
 }: TodoListProps) => {
   const handleDragEnd = (result: DropResult) => {
-    const { destination, source, draggableId } = result;
+    const { destination, source } = result;
 
     if (!destination) {
       return;
