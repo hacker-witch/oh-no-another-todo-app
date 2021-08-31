@@ -16,10 +16,11 @@ export const TodoList = ({ todos, toggleTodo, deleteTodo }: TodoListProps) => {
       return;
     }
 
-    if (
+    const destinationItemIsEqualToSourceItem =
       destination.droppableId === source.droppableId &&
-      destination.index === source.index
-    ) {
+      destination.index === source.index;
+
+    if (destinationItemIsEqualToSourceItem) {
       return;
     }
   };
