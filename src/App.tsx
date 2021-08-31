@@ -1,6 +1,5 @@
 import { FormEvent, useState, useEffect } from "react";
 import localforage from "localforage";
-import { DragDropContext } from "react-beautiful-dnd";
 import { TodoList } from "components/TodoList";
 import { Todo } from "types/Todo";
 
@@ -57,8 +56,6 @@ export const App = () => {
     setNewTodoText("");
   };
 
-  const handleDragEnd = () => {};
-
   return (
     <div>
       <h1>Todo</h1>
@@ -72,13 +69,7 @@ export const App = () => {
           placeholder="Create a new todo..."
         />
       </form>
-      <DragDropContext onDragEnd={handleDragEnd}>
-        <TodoList
-          todos={todos}
-          toggleTodo={toggleTodo}
-          deleteTodo={deleteTodo}
-        />
-      </DragDropContext>
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </div>
   );
 };
