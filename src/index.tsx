@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
   }
+
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+  }
 `;
 
 ReactDOM.render(
