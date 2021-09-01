@@ -80,30 +80,32 @@ export const App = () => {
         <Title>TODO</Title>
       </header>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="addTodo"
-          aria-label="Write a new todo item"
-          value={newTodoText}
-          onChange={handleNewTodoTextChange}
-          placeholder="Create a new todo..."
+      <main>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="addTodo"
+            aria-label="Write a new todo item"
+            value={newTodoText}
+            onChange={handleNewTodoTextChange}
+            placeholder="Create a new todo..."
+          />
+        </form>
+
+        <TodoList
+          todos={todos}
+          toggleTodo={toggleTodo}
+          deleteTodo={deleteTodo}
+          moveTodo={moveTodo}
         />
-      </form>
 
-      <TodoList
-        todos={todos}
-        toggleTodo={toggleTodo}
-        deleteTodo={deleteTodo}
-        moveTodo={moveTodo}
-      />
-
-      <p>Drag and drop to reorder list</p>
-      <p>
-        Press <kbd>space</kbd> in a todo and move it with the arrow keys to
-        reorder the list with the keyboard. To confirm the reordering, press{" "}
-        <kbd>space</kbd> again.
-      </p>
+        <p>Drag and drop to reorder list</p>
+        <p>
+          Press <kbd>space</kbd> in a todo and move it with the arrow keys to
+          reorder the list with the keyboard. To confirm the reordering, press{" "}
+          <kbd>space</kbd> again.
+        </p>
+      </main>
     </Wrapper>
   );
 };
