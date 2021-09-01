@@ -1,4 +1,5 @@
 import { FormEvent, useState, useEffect } from "react";
+import styled from "styled-components";
 import localforage from "localforage";
 import { TodoList } from "components/TodoList";
 import { Todo } from "types/Todo";
@@ -74,7 +75,7 @@ export const App = () => {
 
   return (
     <div>
-      <h1>TODO</h1>
+      <Title>TODO</Title>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -103,3 +104,7 @@ export const App = () => {
     </div>
   );
 };
+
+const Title = styled.h1`
+  font-size: 1.6875rem;
+`;
