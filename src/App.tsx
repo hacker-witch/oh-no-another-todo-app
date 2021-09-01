@@ -74,7 +74,7 @@ export const App = () => {
 
   return (
     <div>
-      <h1>Todo</h1>
+      <h1>TODO</h1>
 
       <form onSubmit={handleSubmit}>
         <input
