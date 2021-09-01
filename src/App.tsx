@@ -76,7 +76,9 @@ export const App = () => {
 
   return (
     <Wrapper>
-      <Title>TODO</Title>
+      <header>
+        <Title>TODO</Title>
+      </header>
 
       <form onSubmit={handleSubmit}>
         <input
