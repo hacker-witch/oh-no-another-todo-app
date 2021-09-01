@@ -29,16 +29,20 @@ const NewTodoTextInput = ({
 );
 
 const StyledNewTodoTextInput = styled(NewTodoTextInput)`
+  position: relative;
   display: flex;
   align-items: center;
   background: #fff;
   border-radius: 5px;
+
+  ${Input} {
+    padding-left: 3.25rem;
+  }
 `;
 
 const Checkbox = styled.div`
   flex-shrink: 0;
-  position: relative;
-  top: -0.1rem;
+  position: absolute;
   margin-left: 1.25rem;
   width: 1.25rem;
   height: 1.25rem;
