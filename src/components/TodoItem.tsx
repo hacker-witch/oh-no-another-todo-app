@@ -3,14 +3,18 @@ import styled from "styled-components";
 import { Draggable } from "react-beautiful-dnd";
 import { Todo } from "types/Todo";
 
+export { StyledTodoItem as TodoItem };
+
 type TodoItemProps = {
+  className?: string;
   todo: Todo;
   index: number;
   toggleTodo: (index: number) => void;
   deleteTodo: (index: number) => void;
 };
 
-export const TodoItem = ({
+const TodoItem = ({
+  className,
   todo,
   index,
   toggleTodo,
@@ -33,6 +37,7 @@ export const TodoItem = ({
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
+          className={className}
         >
           <input
             id={id}
@@ -40,9 +45,11 @@ export const TodoItem = ({
             onChange={handleCheckboxChange}
             checked={todo.wasCompleted}
           />
+
           <Label htmlFor={id} wasCompleted={todo.wasCompleted}>
             {todo.text}
           </Label>
+
           <button
             type="button"
             aria-label="Delete this todo"
@@ -55,6 +62,10 @@ export const TodoItem = ({
     </Draggable>
   );
 };
+
+const StyledTodoItem = styled(TodoItem)`
+  padding: 0.96875rem 0;
+`;
 
 type LabelProps = {
   wasCompleted: boolean;
