@@ -66,6 +66,7 @@ const TodoList = ({
 
 const StyledTodoList = styled(TodoList)`
   list-style-type: none;
+  padding: 0 1.25rem;
   box-shadow: 0 0.3125rem 25px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
 `;
