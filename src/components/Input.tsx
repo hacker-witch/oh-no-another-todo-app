@@ -11,6 +11,11 @@ export const Input = styled.input`
   border: none;
   border-radius: 5px;
 
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
+  }
+
   ::-webkit-input-placeholder {
     ${placeholderStyles}
   }
