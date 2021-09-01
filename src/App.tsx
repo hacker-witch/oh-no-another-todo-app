@@ -1,6 +1,7 @@
 import { FormEvent, useState, useEffect } from "react";
 import styled from "styled-components";
 import localforage from "localforage";
+import { Input } from "components/Input";
 import { TodoList } from "components/TodoList";
 import { Todo } from "types/Todo";
 import mobileBackground from "img/bg-mobile-light.jpg";
@@ -82,7 +83,7 @@ export const App = () => {
 
       <main>
         <form onSubmit={handleSubmit}>
-          <input
+          <Input
             type="text"
             name="addTodo"
             aria-label="Write a new todo item"
