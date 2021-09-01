@@ -99,12 +99,12 @@ export const App = () => {
           moveTodo={moveTodo}
         />
 
-        <p>Drag and drop to reorder list</p>
-        <p>
+        <Text>Drag and drop to reorder list</Text>
+        <Text>
           Press <kbd>space</kbd> in a todo and move it with the arrow keys to
           reorder the list with the keyboard. To confirm the reordering, press{" "}
           <kbd>space</kbd> again.
-        </p>
+        </Text>
       </main>
     </Wrapper>
   );
@@ -124,4 +124,8 @@ const Title = styled.h1`
   letter-spacing: 0.35em;
   color: #fff;
   margin: 3.125rem 0 0 0;
+`;
+
+const Text = styled.p`
+  font-size: 0.728125;
 `;
