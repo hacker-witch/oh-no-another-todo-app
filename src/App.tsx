@@ -75,12 +75,12 @@ export const App = () => {
       </header>
 
       <main>
-        <form onSubmit={handleSubmit}>
+        <AddTodoForm onSubmit={handleSubmit}>
           <NewTodoTextInput
             newTodoText={newTodoText}
             onChange={handleNewTodoTextChange}
           />
-        </form>
+        </AddTodoForm>
 
         <TodoList
           todos={todos}
@@ -107,6 +107,10 @@ const Wrapper = styled.div`
   background-image: url(${mobileBackground});
   background-repeat: no-repeat;
   background-size: contain;
+`;
+
+const AddTodoForm = styled.form`
+  margin-top: 2.5rem;
 `;
 
 const Title = styled.h1`
