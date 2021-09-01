@@ -74,13 +74,13 @@ export const App = () => {
         <Title>TODO</Title>
       </header>
 
-      <main>
-        <AddTodoForm onSubmit={handleSubmit}>
+      <Main>
+        <form onSubmit={handleSubmit}>
           <NewTodoTextInput
             newTodoText={newTodoText}
             onChange={handleNewTodoTextChange}
           />
-        </AddTodoForm>
+        </form>
 
         <TodoList
           todos={todos}
@@ -95,7 +95,7 @@ export const App = () => {
           reorder the list with the keyboard. To confirm the reordering, press{" "}
           <kbd>space</kbd> again.
         </Text>
-      </main>
+      </Main>
     </Wrapper>
   );
 };
@@ -109,8 +109,10 @@ const Wrapper = styled.div`
   background-size: contain;
 `;
 
-const AddTodoForm = styled.form`
-  margin-top: 2.5rem;
+const Main = styled.main`
+  & > form {
+    margin-top: 2.5rem;
+  }
 `;
 
 const Title = styled.h1`
