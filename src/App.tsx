@@ -113,6 +113,10 @@ const Main = styled.main`
   & > form {
     margin-top: 2.5rem;
   }
+
+  & > ${TodoList} {
+    margin-top: 1rem;
+  }
 `;
 
 const Title = styled.h1`
