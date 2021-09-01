@@ -9,6 +9,7 @@ export const Input = styled.input`
   padding: 1.25rem 0.75rem;
   font-family: inherit;
   font-size: 0.728125rem;
+  color: #484b6a;
   border: none;
   border-radius: 5px;
 
