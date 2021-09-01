@@ -3,6 +3,7 @@ import styled from "styled-components";
 import localforage from "localforage";
 import { TodoList } from "components/TodoList";
 import { Todo } from "types/Todo";
+import mobileBackground from "img/bg-mobile-light.jpg";
 
 export const App = () => {
   const [newTodoText, setNewTodoText] = useState("");
@@ -74,7 +75,7 @@ export const App = () => {
   };
 
   return (
-    <div>
+    <Wrapper>
       <Title>TODO</Title>
 
       <form onSubmit={handleSubmit}>
@@ -101,9 +102,17 @@ export const App = () => {
         reorder the list with the keyboard. To confirm the reordering, press{" "}
         <kbd>space</kbd> again.
       </p>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-image: url(${mobileBackground});
+  background-repeat: no-repeat;
+  background-size: contain;
+`;
 
 const Title = styled.h1`
   font-size: 1.6875rem;
