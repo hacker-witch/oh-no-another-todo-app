@@ -50,19 +50,12 @@ export const App = () => {
   };
 
   const moveTodo = (oldIndex: number, newIndex: number) => {
-    const reorderedTodos = todos.map((todo, index) => {
-      if (index === oldIndex) {
-        return todos[newIndex];
-      }
+    const todosCopy = todos.slice();
+    const deletedItems = todosCopy.splice(oldIndex, 1);
+    const todoToBeMoved = deletedItems[0];
+    todosCopy.splice(newIndex, 0, todoToBeMoved);
 
-      if (index === newIndex) {
-        return todos[oldIndex];
-      }
-
-      return todo;
-    });
-
-    setTodos(reorderedTodos);
+    setTodos(todosCopy);
   };
 
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
