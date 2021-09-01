@@ -107,4 +107,5 @@ export const App = () => {
 
 const Title = styled.h1`
   font-size: 1.6875rem;
+  letter-spacing: 0.35em;
 `;
