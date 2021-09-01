@@ -113,6 +113,7 @@ export const App = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0 1.5625rem;
   background-image: url(${mobileBackground});
   background-repeat: no-repeat;
   background-size: contain;
