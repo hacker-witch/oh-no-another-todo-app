@@ -43,6 +43,7 @@ const StyledNewTodoTextInput = styled(NewTodoTextInput)`
 const Checkbox = styled.div`
   flex-shrink: 0;
   position: absolute;
+  top: 29%;
   margin-left: 1.25rem;
   width: 1.25rem;
   height: 1.25rem;
