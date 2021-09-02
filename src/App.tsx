@@ -106,7 +106,7 @@ const Wrapper = styled.div`
   padding: 0 1.5625rem;
   background-image: url(${mobileBackground});
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 23.4375rem 12.5rem;
 `;
 
 const Main = styled.main`
