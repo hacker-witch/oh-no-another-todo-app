@@ -12,6 +12,7 @@ export const Input = styled.input`
   color: #484b6a;
   border: none;
   border-radius: 5px;
+  transition: box-shadow 0.3s;
 
   :focus {
     outline: none;
