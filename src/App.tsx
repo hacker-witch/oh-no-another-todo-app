@@ -111,7 +111,7 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
   & > form {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
   }
 
   & > ${TodoList} {
