@@ -64,7 +64,7 @@ const TodoItem = ({
 };
 
 const StyledTodoItem = styled(TodoItem)`
-  padding: 0.96875rem 0;
+  padding: 0.96875rem 1.25rem;
   border-bottom: 1px solid #e5e5e5;
 `;
 
