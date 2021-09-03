@@ -20,17 +20,18 @@ export const App = () => {
     });
   }, []);
 
-  useEffect(() => {
-    localforage.setItem("todos", todos);
-  }, [todos]);
-
-  const addTodo = (todo: Todo) => {
+  const addTodo = async (todo: Todo) => {
     const newTodos = [...todos, { text: newTodoText, wasCompleted: false }];
-    setTodos(newTodos);
+    try {
+      await localforage.setItem("todos", newTodos);
+      setTodos(newTodos);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const toggleTodo = (index: number) => {
-    const newTodoList = todos.map((todo, currentIndex) => {
+  const toggleTodo = async (index: number) => {
+    const newTodos = todos.map((todo, currentIndex) => {
       if (currentIndex === index) {
         return { ...todo, wasCompleted: !todo.wasCompleted };
       }
@@ -38,24 +39,39 @@ export const App = () => {
       return todo;
     });
 
-    setTodos(newTodoList);
+    try {
+      await localforage.setItem("todos", newTodos);
+      setTodos(newTodos);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const deleteTodo = (index: number) => {
-    const newTodoList = todos.filter(
+  const deleteTodo = async (index: number) => {
+    const newTodos = todos.filter(
       (todo, currentIndex) => currentIndex !== index
     );
 
-    setTodos(newTodoList);
+    try {
+      await localforage.setItem("todos", newTodos);
+      setTodos(newTodos);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const moveTodo = (oldIndex: number, newIndex: number) => {
+  const moveTodo = async (oldIndex: number, newIndex: number) => {
     const todosCopy = todos.slice();
     const deletedItems = todosCopy.splice(oldIndex, 1);
     const todoToBeMoved = deletedItems[0];
     todosCopy.splice(newIndex, 0, todoToBeMoved);
 
-    setTodos(todosCopy);
+    try {
+      await localforage.setItem("todos", todosCopy);
+      setTodos(todosCopy);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
