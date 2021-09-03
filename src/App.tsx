@@ -20,14 +20,18 @@ export const App = () => {
     });
   }, []);
 
-  const addTodo = async (todo: Todo) => {
-    const newTodos = [...todos, { text: newTodoText, wasCompleted: false }];
+  const updateTodos = async (newTodos: Todo[]) => {
     try {
       await localforage.setItem("todos", newTodos);
       setTodos(newTodos);
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const addTodo = async (todo: Todo) => {
+    const newTodos = [...todos, { text: newTodoText, wasCompleted: false }];
+    updateTodos(newTodos);
   };
 
   const toggleTodo = async (index: number) => {
@@ -39,12 +43,7 @@ export const App = () => {
       return todo;
     });
 
-    try {
-      await localforage.setItem("todos", newTodos);
-      setTodos(newTodos);
-    } catch (error) {
-      console.error(error);
-    }
+    updateTodos(newTodos);
   };
 
   const deleteTodo = async (index: number) => {
@@ -52,12 +51,7 @@ export const App = () => {
       (todo, currentIndex) => currentIndex !== index
     );
 
-    try {
-      await localforage.setItem("todos", newTodos);
-      setTodos(newTodos);
-    } catch (error) {
-      console.error(error);
-    }
+    updateTodos(newTodos);
   };
 
   const moveTodo = async (oldIndex: number, newIndex: number) => {
@@ -66,12 +60,7 @@ export const App = () => {
     const todoToBeMoved = deletedItems[0];
     todosCopy.splice(newIndex, 0, todoToBeMoved);
 
-    try {
-      await localforage.setItem("todos", todosCopy);
-      setTodos(todosCopy);
-    } catch (error) {
-      console.error(error);
-    }
+    updateTodos(todosCopy);
   };
 
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
