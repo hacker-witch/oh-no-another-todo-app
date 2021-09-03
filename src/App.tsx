@@ -1,67 +1,13 @@
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState } from "react";
 import styled from "styled-components";
-import localforage from "localforage";
 import { TodoList } from "components/TodoList";
-import { Todo } from "types/Todo";
 import { NewTodoTextInput } from "components/NewTodoTextInput";
+import { useTodos } from "hooks/useTodos";
 import mobileBackground from "img/bg-mobile-light.jpg";
 
 export const App = () => {
   const [newTodoText, setNewTodoText] = useState("");
-  const [todos, setTodos] = useState<Todo[]>([]);
-
-  useEffect(() => {
-    localforage.getItem("todos").then((todos) => {
-      if (!todos) {
-        return;
-      }
-
-      setTodos(todos as Todo[]);
-    });
-  }, []);
-
-  const updateTodos = async (newTodos: Todo[]) => {
-    try {
-      await localforage.setItem("todos", newTodos);
-      setTodos(newTodos);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const addTodo = async (todo: Todo) => {
-    const newTodos = [...todos, { ...todo }];
-    updateTodos(newTodos);
-  };
-
-  const toggleTodo = async (index: number) => {
-    const newTodos = todos.map((todo, currentIndex) => {
-      if (currentIndex === index) {
-        return { ...todo, wasCompleted: !todo.wasCompleted };
-      }
-
-      return todo;
-    });
-
-    updateTodos(newTodos);
-  };
-
-  const deleteTodo = async (index: number) => {
-    const newTodos = todos.filter(
-      (todo, currentIndex) => currentIndex !== index
-    );
-
-    updateTodos(newTodos);
-  };
-
-  const moveTodo = async (oldIndex: number, newIndex: number) => {
-    const todosCopy = todos.slice();
-    const deletedItems = todosCopy.splice(oldIndex, 1);
-    const todoToBeMoved = deletedItems[0];
-    todosCopy.splice(newIndex, 0, todoToBeMoved);
-
-    updateTodos(todosCopy);
-  };
+  const { todos, addTodo, toggleTodo, deleteTodo, moveTodo } = useTodos();
 
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
     setNewTodoText(e.currentTarget.value);
