@@ -7,7 +7,8 @@ import mobileBackground from "img/bg-mobile-light.jpg";
 
 export const App = () => {
   const [newTodoText, setNewTodoText] = useState("");
-  const { todoList, addTodo, toggleTodo, deleteTodo, moveTodo } = useTodoList();
+  const { todoList, error, addTodo, toggleTodo, deleteTodo, moveTodo } =
+    useTodoList();
 
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
     setNewTodoText(e.currentTarget.value);
@@ -27,6 +28,7 @@ export const App = () => {
 
       <Main>
         <form onSubmit={handleSubmit}>
+          {error ? error : null}
           <NewTodoTextInput
             newTodoText={newTodoText}
             onChange={handleNewTodoTextChange}

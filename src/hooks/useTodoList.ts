@@ -4,6 +4,7 @@ import { Todo } from "types/Todo";
 
 export const useTodoList = () => {
   const [todoList, setTodoList] = useState<Todo[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     localforage.getItem("todos").then((todoList) => {
@@ -23,6 +24,8 @@ export const useTodoList = () => {
       if (process.env.NODE_ENV === "development") {
         console.error(error);
       }
+
+      setError("An unexpected error has ocurred, please try again later.");
     }
   };
 
@@ -62,6 +65,7 @@ export const useTodoList = () => {
 
   return {
     todoList,
+    error,
     addTodo,
     toggleTodo,
     deleteTodo,
