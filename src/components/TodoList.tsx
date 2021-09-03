@@ -72,4 +72,12 @@ const StyledTodoList = styled(TodoList)`
   box-shadow: 0 0.3125rem 25px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
   background: #fff;
+
+  ${TodoItem} {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  ${TodoItem}:last-child {
+    border-bottom: 0;
+  }
 `;
