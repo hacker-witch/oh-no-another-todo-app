@@ -20,7 +20,9 @@ export const useTodoList = () => {
       await localforage.setItem("todos", newTodoList);
       setTodoList(newTodoList);
     } catch (error) {
-      console.error(error);
+      if (process.env.NODE_ENV === "development") {
+        console.error(error);
+      }
     }
   };
 
