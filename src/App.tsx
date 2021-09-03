@@ -30,7 +30,7 @@ export const App = () => {
   };
 
   const addTodo = async (todo: Todo) => {
-    const newTodos = [...todos, { text: newTodoText, wasCompleted: false }];
+    const newTodos = [...todos, { ...todo }];
     updateTodos(newTodos);
   };
 
