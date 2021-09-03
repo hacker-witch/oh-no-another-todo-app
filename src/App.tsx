@@ -2,12 +2,12 @@ import { FormEvent, useState } from "react";
 import styled from "styled-components";
 import { TodoList } from "components/TodoList";
 import { NewTodoTextInput } from "components/NewTodoTextInput";
-import { useTodos } from "hooks/useTodos";
+import { useTodoList } from "hooks/useTodoList";
 import mobileBackground from "img/bg-mobile-light.jpg";
 
 export const App = () => {
   const [newTodoText, setNewTodoText] = useState("");
-  const { todos, addTodo, toggleTodo, deleteTodo, moveTodo } = useTodos();
+  const { todoList, addTodo, toggleTodo, deleteTodo, moveTodo } = useTodoList();
 
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
     setNewTodoText(e.currentTarget.value);
@@ -34,7 +34,7 @@ export const App = () => {
         </form>
 
         <TodoList
-          todos={todos}
+          todos={todoList}
           toggleTodo={toggleTodo}
           deleteTodo={deleteTodo}
           moveTodo={moveTodo}
