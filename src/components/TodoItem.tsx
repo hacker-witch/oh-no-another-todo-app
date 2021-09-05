@@ -131,6 +131,7 @@ const CheckboxContainer = styled.div`
     }
 
     ::before {
+      opacity: 0;
       content: "";
       display: block;
       width: 100%;
@@ -151,5 +152,9 @@ const CheckboxContainer = styled.div`
     svg {
       opacity: 1;
     }
+  }
+
+  input:checked + .control::before {
+    opacity: 1;
   }
 `;
