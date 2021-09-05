@@ -116,4 +116,12 @@ const CheckboxContainer = styled.div`
     border-radius: 50%;
     border: 1px solid #e4e5f1;
   }
+
+  input:checked + .control {
+    background: linear-gradient(
+      to left top,
+      hsl(280, 87%, 65%),
+      hsl(192, 100%, 67%)
+    );
+  }
 `;
