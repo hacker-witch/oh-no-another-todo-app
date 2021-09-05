@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Draggable } from "react-beautiful-dnd";
 import { Todo } from "types/Todo";
 import { ReactComponent as DeleteIcon } from "img/icon-cross.svg";
+import { ReactComponent as CheckIcon } from "img/icon-check.svg";
 
 export { StyledTodoItem as TodoItem };
 
@@ -47,7 +48,9 @@ const TodoItem = ({
               onChange={handleCheckboxChange}
               checked={todo.wasCompleted}
             />
-            <div className="control" />
+            <div className="control">
+              <CheckIcon />
+            </div>
           </CheckboxContainer>
 
           <Label htmlFor={id} wasCompleted={todo.wasCompleted}>
