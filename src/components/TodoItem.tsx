@@ -2,6 +2,7 @@ import { FormEvent } from "react";
 import styled from "styled-components";
 import { Draggable } from "react-beautiful-dnd";
 import { Todo } from "types/Todo";
+import { ReactComponent as DeleteIcon } from "img/icon-cross.svg";
 
 export { StyledTodoItem as TodoItem };
 
@@ -55,7 +56,7 @@ const TodoItem = ({
             aria-label="Delete this todo"
             onClick={handleDelete}
           >
-            &times;
+            <DeleteIcon />
           </button>
         </li>
       )}
