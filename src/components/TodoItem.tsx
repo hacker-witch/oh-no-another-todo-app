@@ -90,6 +90,8 @@ const StyledDeleteIcon = styled(DeleteIcon)`
 `;
 
 const CheckboxContainer = styled.div`
+  width: 1.25rem;
+  height: 1.25rem;
   display: grid;
   grid-template-areas: "checkbox";
 
@@ -99,11 +101,11 @@ const CheckboxContainer = styled.div`
 
   input {
     opacity: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .control {
-    width: 1.25rem;
-    height: 1.25rem;
     border-radius: 50%;
     border: 1px solid #e4e5f1;
   }
