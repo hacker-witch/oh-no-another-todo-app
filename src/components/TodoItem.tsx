@@ -129,14 +129,23 @@ const CheckboxContainer = styled.div`
       pointer-events: none;
       transition: 0.3s opacity;
     }
+
+    ::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      background: linear-gradient(
+        to left top,
+        hsl(280, 87%, 65%),
+        hsl(192, 100%, 67%)
+      );
+    }
   }
 
   input:checked + .control {
-    background: linear-gradient(
-      to left top,
-      hsl(280, 87%, 65%),
-      hsl(192, 100%, 67%)
-    );
     border: 0;
 
     svg {
