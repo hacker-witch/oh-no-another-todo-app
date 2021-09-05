@@ -80,6 +80,7 @@ const Label = styled.label<LabelProps>`
   margin: 0 0.75rem;
   color: ${(props) => (props.wasCompleted ? "#D2D3DB" : "inherit")};
   text-decoration: ${(props) => (props.wasCompleted ? "line-through" : "none")};
+  text-decoration-color: #b8bac6;
 `;
 
 const DeleteButton = styled.button`
