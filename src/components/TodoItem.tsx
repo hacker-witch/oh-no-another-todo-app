@@ -78,6 +78,7 @@ type LabelProps = {
 const Label = styled.label<LabelProps>`
   flex: 1;
   margin: 0 0.75rem;
+  color: ${(props) => (props.wasCompleted ? "#D2D3DB" : "inherit")};
   text-decoration: ${(props) => (props.wasCompleted ? "line-through" : "none")};
 `;
 
