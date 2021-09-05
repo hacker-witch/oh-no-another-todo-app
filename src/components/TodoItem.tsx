@@ -121,6 +121,10 @@ const CheckboxContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    svg {
+      opacity: 0;
+    }
   }
 
   input:checked + .control {
@@ -130,5 +134,9 @@ const CheckboxContainer = styled.div`
       hsl(192, 100%, 67%)
     );
     border: 0;
+
+    svg {
+      opacity: 1;
+    }
   }
 `;
