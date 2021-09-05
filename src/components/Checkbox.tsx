@@ -46,6 +46,7 @@ const Control = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
   transition-property: border;
   transition-duration: 0.3s;
 
