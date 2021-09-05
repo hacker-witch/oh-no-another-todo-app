@@ -90,13 +90,13 @@ const LabelText = styled.span<LabelTextProps>`
 
   &::before {
     content: "";
+    transform: ${(props) => (props.wasCompleted ? "scaleX(1)" : "scaleX(0)")};
+    transform-origin: left;
+    transition: 0.3s transform;
     width: 100%;
     position: absolute;
     top: 50%;
-    border-color: ${(props) =>
-      props.wasCompleted ? "#b8bac6" : "transparent"};
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
+    border-bottom: 1px solid #b8bac6;
   }
 `;
 
