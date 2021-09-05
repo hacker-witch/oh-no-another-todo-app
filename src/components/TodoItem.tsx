@@ -123,5 +123,6 @@ const CheckboxContainer = styled.div`
       hsl(280, 87%, 65%),
       hsl(192, 100%, 67%)
     );
+    border: 0;
   }
 `;
