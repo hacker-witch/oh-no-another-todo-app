@@ -90,6 +90,13 @@ const StyledDeleteIcon = styled(DeleteIcon)`
 `;
 
 const CheckboxContainer = styled.div`
+  display: grid;
+  grid-template-areas: "checkbox";
+
+  > * {
+    grid-area: checkbox;
+  }
+
   input {
     opacity: 0;
   }
