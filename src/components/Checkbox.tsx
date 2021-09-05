@@ -23,6 +23,8 @@ const Checkbox = ({ className, id, isChecked, onChange }: CheckboxProps) => (
 const StyledCheckbox = styled(Checkbox)`
   width: 1.25rem;
   height: 1.25rem;
+  border: 1px solid #e4e5f1;
+  border-radius: 50%;
   position: relative;
   top: -0.0625rem;
   display: inline-grid;
@@ -41,8 +43,6 @@ const Input = styled.input`
 `;
 
 const Control = styled.div`
-  border-radius: 50%;
-  border: 1px solid #e4e5f1;
   display: flex;
   align-items: center;
   justify-content: center;
