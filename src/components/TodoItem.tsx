@@ -47,6 +47,7 @@ const TodoItem = ({
               onChange={handleCheckboxChange}
               checked={todo.wasCompleted}
             />
+            <div className="control" />
           </CheckboxContainer>
 
           <Label htmlFor={id} wasCompleted={todo.wasCompleted}>
@@ -91,5 +92,10 @@ const StyledDeleteIcon = styled(DeleteIcon)`
 const CheckboxContainer = styled.div`
   input {
     opacity: 0;
+  }
+
+  .control {
+    border-radius: 50%;
+    border: 1px solid #e4e5f1;
   }
 `;
