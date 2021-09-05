@@ -56,7 +56,7 @@ const TodoItem = ({
             aria-label="Delete this todo"
             onClick={handleDelete}
           >
-            <DeleteIcon />
+            <StyledDeleteIcon />
           </button>
         </li>
       )}
@@ -74,4 +74,9 @@ type LabelProps = {
 
 const Label = styled.label<LabelProps>`
   text-decoration: ${(props) => (props.wasCompleted ? "line-through" : "none")};
+`;
+
+const StyledDeleteIcon = styled(DeleteIcon)`
+  width: 0.8125rem;
+  height: 0.8125rem;
 `;
