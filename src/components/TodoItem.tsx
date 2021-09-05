@@ -125,10 +125,12 @@ const CheckboxContainer = styled.div`
     transition-duration: 0.3s;
 
     svg {
+      transform: scale(0);
       opacity: 0;
       pointer-events: none;
       z-index: 1;
-      transition: 0.3s opacity;
+      transition-duration: 0.3s;
+      transition-property: opacity, transform;
     }
 
     ::before {
@@ -156,6 +158,7 @@ const CheckboxContainer = styled.div`
 
     svg {
       opacity: 1;
+      transform: scale(1);
     }
   }
 
