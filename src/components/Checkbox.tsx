@@ -24,6 +24,7 @@ const StyledCheckbox = styled(Checkbox)`
   width: 1.25rem;
   height: 1.25rem;
   border: 1px solid #e4e5f1;
+  transition: 0.3s border;
   border-radius: 50%;
   position: relative;
   top: -0.0625rem;
@@ -47,8 +48,6 @@ const Control = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition-property: border;
-  transition-duration: 0.3s;
 
   &::before {
     transform: scale(0);
