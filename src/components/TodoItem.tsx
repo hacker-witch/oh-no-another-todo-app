@@ -51,13 +51,13 @@ const TodoItem = ({
             {todo.text}
           </Label>
 
-          <button
+          <DeleteButton
             type="button"
             aria-label="Delete this todo"
             onClick={handleDelete}
           >
             <StyledDeleteIcon />
-          </button>
+          </DeleteButton>
         </li>
       )}
     </Draggable>
@@ -74,6 +74,10 @@ type LabelProps = {
 
 const Label = styled.label<LabelProps>`
   text-decoration: ${(props) => (props.wasCompleted ? "line-through" : "none")};
+`;
+
+const DeleteButton = styled.button`
+  border: 0;
 `;
 
 const StyledDeleteIcon = styled(DeleteIcon)`
