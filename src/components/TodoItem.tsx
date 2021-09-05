@@ -92,7 +92,7 @@ const StyledDeleteIcon = styled(DeleteIcon)`
 const CheckboxContainer = styled.div`
   width: 1.25rem;
   height: 1.25rem;
-  display: grid;
+  display: inline-grid;
   grid-template-areas: "checkbox";
 
   > * {
