@@ -48,7 +48,7 @@ const TodoItem = ({
           />
 
           <Label htmlFor={id} wasCompleted={todo.wasCompleted}>
-            {todo.text}
+            <LabelText wasCompleted={todo.wasCompleted}>{todo.text}</LabelText>
           </Label>
 
           <DeleteButton
@@ -77,11 +77,18 @@ type LabelProps = {
 
 const Label = styled.label<LabelProps>`
   flex: 1;
-  position: relative;
   margin: 0 0.75rem;
   color: ${(props) => (props.wasCompleted ? "#D2D3DB" : "inherit")};
+`;
 
-  ::before {
+type LabelTextProps = {
+  wasCompleted: boolean;
+};
+
+const LabelText = styled.span<LabelTextProps>`
+  position: relative;
+
+  &::before {
     content: "";
     width: 100%;
     position: absolute;
