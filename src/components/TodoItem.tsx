@@ -132,6 +132,7 @@ const CheckboxContainer = styled.div`
 
     ::before {
       opacity: 0;
+      pointer-events: none;
       content: "";
       display: block;
       width: 100%;
