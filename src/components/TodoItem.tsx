@@ -78,6 +78,7 @@ const Label = styled.label<LabelProps>`
 
 const DeleteButton = styled.button`
   border: 0;
+  background: none;
 `;
 
 const StyledDeleteIcon = styled(DeleteIcon)`
