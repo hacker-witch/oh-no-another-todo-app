@@ -77,11 +77,20 @@ type LabelProps = {
 
 const Label = styled.label<LabelProps>`
   flex: 1;
+  position: relative;
   margin: 0 0.75rem;
   color: ${(props) => (props.wasCompleted ? "#D2D3DB" : "inherit")};
-  text-decoration: line-through;
-  text-decoration-color: ${(props) =>
-    props.wasCompleted ? "#b8bac6" : "transparent"};
+
+  ::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    border-color: ${(props) =>
+      props.wasCompleted ? "#b8bac6" : "transparent"};
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
 `;
 
 const DeleteButton = styled.button`
