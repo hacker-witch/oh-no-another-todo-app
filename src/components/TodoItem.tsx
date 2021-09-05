@@ -118,6 +118,9 @@ const CheckboxContainer = styled.div`
   .control {
     border-radius: 50%;
     border: 1px solid #e4e5f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   input:checked + .control {
