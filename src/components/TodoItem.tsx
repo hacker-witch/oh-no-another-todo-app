@@ -132,6 +132,7 @@ const CheckboxContainer = styled.div`
     }
 
     ::before {
+      transform: scale(0);
       opacity: 0;
       pointer-events: none;
       content: "";
@@ -145,7 +146,8 @@ const CheckboxContainer = styled.div`
         hsl(280, 87%, 65%),
         hsl(192, 100%, 67%)
       );
-      transition: 0.3s opacity;
+      transition-duration: 0.3s;
+      transition-property: opacity, transform;
     }
   }
 
@@ -159,5 +161,6 @@ const CheckboxContainer = styled.div`
 
   input:checked + .control::before {
     opacity: 1;
+    transform: scale(1);
   }
 `;
