@@ -79,8 +79,9 @@ const Label = styled.label<LabelProps>`
   flex: 1;
   margin: 0 0.75rem;
   color: ${(props) => (props.wasCompleted ? "#D2D3DB" : "inherit")};
-  text-decoration: ${(props) => (props.wasCompleted ? "line-through" : "none")};
-  text-decoration-color: #b8bac6;
+  text-decoration: line-through;
+  text-decoration-color: ${(props) =>
+    props.wasCompleted ? "#b8bac6" : "transparent"};
 `;
 
 const DeleteButton = styled.button`
