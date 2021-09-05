@@ -127,6 +127,7 @@ const CheckboxContainer = styled.div`
     svg {
       opacity: 0;
       pointer-events: none;
+      transition: 0.3s opacity;
     }
   }
 
