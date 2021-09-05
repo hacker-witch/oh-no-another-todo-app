@@ -68,6 +68,7 @@ const StyledTodoItem = styled(TodoItem)`
   padding: 0.96875rem 1.25rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 type LabelProps = {
@@ -75,6 +76,8 @@ type LabelProps = {
 };
 
 const Label = styled.label<LabelProps>`
+  flex: 1;
+  margin: 0 0.75rem;
   text-decoration: ${(props) => (props.wasCompleted ? "line-through" : "none")};
 `;
 
