@@ -1,6 +1,7 @@
 import { FormEvent } from "react";
 import styled from "styled-components";
 import { Input } from "components/Input";
+import { Checkbox } from "components/Checkbox";
 
 export { StyledNewTodoTextInput as NewTodoTextInput };
 
@@ -16,7 +17,7 @@ const NewTodoTextInput = ({
   onChange,
 }: NewTodoTextInputProps) => (
   <div className={className}>
-    <Checkbox />
+    <DecorativeCheckbox />
     <Input
       type="text"
       name="addTodo"
@@ -40,13 +41,15 @@ const StyledNewTodoTextInput = styled(NewTodoTextInput)`
   }
 `;
 
-const Checkbox = styled.div`
+const DecorativeCheckbox = () => (
+  <DecorativeCheckboxWrapper>
+    <Checkbox as="div" />
+  </DecorativeCheckboxWrapper>
+);
+
+const DecorativeCheckboxWrapper = styled.div`
   flex-shrink: 0;
   position: absolute;
   top: 29%;
   margin-left: 1.25rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 50%;
-  border: 1px solid #e4e5f1;
 `;
