@@ -40,12 +40,14 @@ const TodoItem = ({
           ref={provided.innerRef}
           className={className}
         >
-          <input
-            id={id}
-            type="checkbox"
-            onChange={handleCheckboxChange}
-            checked={todo.wasCompleted}
-          />
+          <CheckboxContainer>
+            <input
+              id={id}
+              type="checkbox"
+              onChange={handleCheckboxChange}
+              checked={todo.wasCompleted}
+            />
+          </CheckboxContainer>
 
           <Label htmlFor={id} wasCompleted={todo.wasCompleted}>
             {todo.text}
@@ -84,4 +86,10 @@ const DeleteButton = styled.button`
 const StyledDeleteIcon = styled(DeleteIcon)`
   width: 0.8125rem;
   height: 0.8125rem;
+`;
+
+const CheckboxContainer = styled.div`
+  input {
+    opacity: 0;
+  }
 `;
