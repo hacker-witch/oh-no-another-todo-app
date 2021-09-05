@@ -82,6 +82,8 @@ const Label = styled.label<LabelProps>`
 `;
 
 const DeleteButton = styled.button`
+  display: flex;
+  align-items: center;
   border: 0;
   background: none;
 `;
