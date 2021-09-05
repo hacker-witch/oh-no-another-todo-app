@@ -121,6 +121,8 @@ const CheckboxContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    transition-property: border;
+    transition-duration: 0.3s;
 
     svg {
       opacity: 0;
