@@ -69,6 +69,8 @@ const TodoItem = ({
 
 const StyledTodoItem = styled(TodoItem)`
   padding: 0.96875rem 1.25rem;
+  display: flex;
+  align-items: center;
 `;
 
 type LabelProps = {
@@ -92,6 +94,8 @@ const StyledDeleteIcon = styled(DeleteIcon)`
 const CheckboxContainer = styled.div`
   width: 1.25rem;
   height: 1.25rem;
+  position: relative;
+  top: -0.0625rem;
   display: inline-grid;
   grid-template-areas: "checkbox";
 
