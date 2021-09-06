@@ -21,6 +21,7 @@ const Checkbox = ({ className, id, isChecked, onChange }: CheckboxProps) => (
 );
 
 const StyledCheckbox = styled(Checkbox)`
+  z-index: 0;
   width: 1.25rem;
   height: 1.25rem;
   position: relative;
@@ -44,11 +45,13 @@ const Control = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #fff;
   border-radius: 50%;
   border: 1px solid #e4e5f1;
   transition: 0.3s border;
 
-  &::before {
+  &::before,
+  &::after {
     transform: scale(0);
     opacity: 0;
     pointer-events: none;
@@ -67,6 +70,10 @@ const Control = styled.div`
     transition-property: opacity, transform;
   }
 
+  &::after {
+    z-index: -1;
+  }
+
   ${Input}:checked + & {
     border: 0;
   }
@@ -74,6 +81,11 @@ const Control = styled.div`
   ${Input}:checked + &::before {
     opacity: 1;
     transform: scale(1);
+  }
+
+  ${Input}:focus + &:after {
+    opacity: 0.5;
+    transform: scale(1.3);
   }
 `;
 
