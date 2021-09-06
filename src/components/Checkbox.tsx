@@ -23,9 +23,6 @@ const Checkbox = ({ className, id, isChecked, onChange }: CheckboxProps) => (
 const StyledCheckbox = styled(Checkbox)`
   width: 1.25rem;
   height: 1.25rem;
-  border: 1px solid #e4e5f1;
-  transition: 0.3s border;
-  border-radius: 50%;
   position: relative;
   top: -0.0625rem;
   display: inline-grid;
@@ -48,6 +45,8 @@ const Control = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  border: 1px solid #e4e5f1;
+  transition: 0.3s border;
 
   &::before {
     transform: scale(0);
