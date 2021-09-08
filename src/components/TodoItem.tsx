@@ -107,6 +107,8 @@ const DeleteButton = styled.button`
   border: 0;
   background: none;
   border-radius: 4px;
+  transition-duration: 0.3s;
+  transition-property: box-shadow;
 
   &:focus {
     outline: none;
