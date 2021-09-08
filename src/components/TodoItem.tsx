@@ -114,6 +114,10 @@ const DeleteButton = styled.button`
     outline: none;
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15);
   }
+
+  &:active {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
 `;
 
 const StyledDeleteIcon = styled(DeleteIcon)`
