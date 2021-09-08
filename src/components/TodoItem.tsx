@@ -106,6 +106,7 @@ const DeleteButton = styled.button`
   padding: 0.25rem;
   border: 0;
   background: none;
+  border-radius: 4px;
 `;
 
 const StyledDeleteIcon = styled(DeleteIcon)`
