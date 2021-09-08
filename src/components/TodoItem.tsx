@@ -65,7 +65,7 @@ const TodoItem = ({
 };
 
 const StyledTodoItem = styled(TodoItem)`
-  padding: 0.96875rem 1.25rem;
+  padding: 0.96875rem 1rem 0.96875rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -103,7 +103,7 @@ const LabelText = styled.span<LabelTextProps>`
 const DeleteButton = styled.button`
   display: flex;
   align-items: center;
-  padding: 0;
+  padding: 0.25rem;
   border: 0;
   background: none;
 `;
