@@ -69,6 +69,11 @@ const StyledTodoItem = styled(TodoItem)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px hsl(220, 98%, 61%);
+  }
 `;
 
 type LabelProps = {
