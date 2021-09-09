@@ -86,18 +86,11 @@ type LabelTextProps = {
 };
 
 const LabelText = styled.span<LabelTextProps>`
-  position: relative;
-
-  &::before {
-    content: "";
-    transform: ${(props) => (props.wasCompleted ? "scaleX(1)" : "scaleX(0)")};
-    transform-origin: left;
-    transition: 0.3s transform;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    border-bottom: 1px solid #b8bac6;
-  }
+  background-image: linear-gradient(#b8bac6, #b8bac6);
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  background-size: ${(props) => (props.wasCompleted ? "100% 1px" : "0% 1px")};
+  transition: 0.3s background-size;
 `;
 
 const DeleteButton = styled.button`
