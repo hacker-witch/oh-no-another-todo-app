@@ -69,6 +69,7 @@ const StyledTodoItem = styled(TodoItem)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: 0.3s box-shadow;
 
   &:focus-visible {
     outline: none;
