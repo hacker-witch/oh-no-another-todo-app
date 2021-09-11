@@ -4,6 +4,7 @@ import { Todo } from "types/Todo";
 
 export const useTodoList = () => {
   const [todoList, setTodoList] = useState<Todo[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -18,6 +19,7 @@ export const useTodoList = () => {
 
   const updateTodoList = async (newTodoList: Todo[]) => {
     try {
+      setIsLoading(true);
       await localforage.setItem("todos", newTodoList);
       setTodoList(newTodoList);
     } catch (error) {
@@ -26,6 +28,8 @@ export const useTodoList = () => {
       }
 
       setError("An unexpected error has ocurred, please try again later.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -65,6 +69,7 @@ export const useTodoList = () => {
 
   return {
     todoList,
+    isLoading,
     error,
     addTodo,
     toggleTodo,

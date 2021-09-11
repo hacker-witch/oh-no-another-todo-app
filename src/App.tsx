@@ -7,8 +7,15 @@ import mobileBackground from "img/bg-mobile-light.jpg";
 
 export const App = () => {
   const [newTodoText, setNewTodoText] = useState("");
-  const { todoList, error, addTodo, toggleTodo, deleteTodo, moveTodo } =
-    useTodoList();
+  const {
+    todoList,
+    error,
+    isLoading,
+    addTodo,
+    toggleTodo,
+    deleteTodo,
+    moveTodo,
+  } = useTodoList();
 
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
     setNewTodoText(e.currentTarget.value);
@@ -23,7 +30,7 @@ export const App = () => {
   return (
     <Wrapper>
       <header>
-        <Title>TODO</Title>
+        <Title>TODO</Title> {isLoading ? "Loading..." : null}
       </header>
 
       <Main>
