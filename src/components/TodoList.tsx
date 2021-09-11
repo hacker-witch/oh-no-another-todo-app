@@ -49,7 +49,7 @@ const TodoList = ({
           >
             {todos.map((todo, index) => (
               <TodoItem
-                key={index}
+                key={todo.id}
                 todo={todo}
                 index={index}
                 toggleTodo={toggleTodo}
