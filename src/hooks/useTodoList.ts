@@ -63,12 +63,26 @@ export const useTodoList = () => {
   };
 
   const moveTodo = async (oldIndex: number, newIndex: number) => {
-    const todoListCopy = todoList.slice();
-    const deletedItems = todoListCopy.splice(oldIndex, 1);
+    const previousTodoList = todoList.slice();
+    const newTodoList = todoList.slice();
+    const deletedItems = newTodoList.splice(oldIndex, 1);
     const todoToBeMoved = deletedItems[0];
-    todoListCopy.splice(newIndex, 0, todoToBeMoved);
+    newTodoList.splice(newIndex, 0, todoToBeMoved);
 
-    updateTodoList(todoListCopy);
+    setTodoList(newTodoList);
+    setIsLoading(true);
+
+    try {
+      await localforage.setItem("todos", newTodoList);
+    } catch (error) {
+      if (process.env.NODE_ENV === "development") {
+        console.error(error);
+      }
+      setError("An unexpected error has ocurred, please try again later.");
+      setTodoList(previousTodoList);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return {
