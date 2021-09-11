@@ -23,7 +23,7 @@ export const App = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addTodo({ text: newTodoText, wasCompleted: false, id: todoList.length });
+    addTodo(newTodoText);
     setNewTodoText("");
   };
 

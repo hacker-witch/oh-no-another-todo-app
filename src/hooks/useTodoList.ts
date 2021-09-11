@@ -36,8 +36,9 @@ export const useTodoList = () => {
     }
   };
 
-  const addTodo = async (todo: Todo) => {
-    const newTodoList = [...todoList, { ...todo }];
+  const addTodo = async (text: string) => {
+    const newTodo = { text, wasCompleted: false, id: todoList.length };
+    const newTodoList = [...todoList, newTodo];
     updateTodoList(newTodoList);
   };
 
