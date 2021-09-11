@@ -11,6 +11,7 @@ export const useTodoList = () => {
     setIsLoading(true);
     localforage.getItem("todos").then((todoList) => {
       if (!todoList) {
+        setIsLoading(false);
         return;
       }
 
