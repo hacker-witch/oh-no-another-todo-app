@@ -8,12 +8,14 @@ export const useTodoList = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    setIsLoading(true);
     localforage.getItem("todos").then((todoList) => {
       if (!todoList) {
         return;
       }
 
       setTodoList(todoList as Todo[]);
+      setIsLoading(false);
     });
   }, []);
 
