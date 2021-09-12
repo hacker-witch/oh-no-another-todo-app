@@ -30,7 +30,7 @@ const TodoItem = ({
     deleteTodo(index);
   };
 
-  const id = `todo-${index}`;
+  const id = `todo-${todo.id}`;
 
   return (
     <Draggable draggableId={id} index={index}>
