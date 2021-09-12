@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import localforage from "localforage";
 import { Todo } from "types/Todo";
 
+const nextId = async () => {
+  const currentId = (await localforage.getItem("currentId")) as number;
+  await localforage.setItem("currentId", currentId + 1);
+  return currentId;
+};
+
 export const useTodoList = () => {
   const [todoList, setTodoList] = useState<Todo[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -44,9 +50,14 @@ export const useTodoList = () => {
   };
 
   const addTodo = async (text: string) => {
-    const newTodo = { text, wasCompleted: false, id: todoList.length };
-    const newTodoList = [...todoList, newTodo];
-    updateTodoList(newTodoList);
+    try {
+      const id = await nextId();
+      const newTodo = { text, wasCompleted: false, id };
+      const newTodoList = [...todoList, newTodo];
+      updateTodoList(newTodoList);
+    } catch (error) {
+      handleLocalDatabaseErrors(error as Error);
+    }
   };
 
   const toggleTodo = async (index: number) => {
