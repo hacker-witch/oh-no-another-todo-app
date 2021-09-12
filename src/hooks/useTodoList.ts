@@ -9,15 +9,18 @@ export const useTodoList = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    localforage.getItem("todos").then((todoList) => {
-      if (!todoList) {
-        setIsLoading(false);
-        return;
-      }
+    localforage
+      .getItem("todos")
+      .then((todoList) => {
+        if (!todoList) {
+          setIsLoading(false);
+          return;
+        }
 
-      setTodoList(todoList as Todo[]);
-      setIsLoading(false);
-    });
+        setTodoList(todoList as Todo[]);
+        setIsLoading(false);
+      })
+      .catch((error) => handleLocalDatabaseErrors(error as Error));
   }, []);
 
   const updateTodoList = async (newTodoList: Todo[]) => {
