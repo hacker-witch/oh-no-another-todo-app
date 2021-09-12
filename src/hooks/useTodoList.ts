@@ -30,12 +30,15 @@ export const useTodoList = () => {
   }, []);
 
   const updateTodoList = async (newTodoList: Todo[]) => {
+    const previousTodoList = [...todoList];
+
     try {
       setIsLoading(true);
-      await localforage.setItem("todos", newTodoList);
       setTodoList(newTodoList);
+      await localforage.setItem("todos", newTodoList);
     } catch (error) {
       handleLocalDatabaseErrors(error as Error);
+      setTodoList(previousTodoList);
     } finally {
       setIsLoading(false);
     }
