@@ -26,14 +26,18 @@ export const useTodoList = () => {
       await localforage.setItem("todos", newTodoList);
       setTodoList(newTodoList);
     } catch (error) {
-      if (process.env.NODE_ENV === "development") {
-        console.error(error);
-      }
-
-      setError("An unexpected error has ocurred, please try again later.");
+      handleLocalDatabaseErrors(error as Error);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleLocalDatabaseErrors = (error: Error) => {
+    if (process.env.NODE_ENV === "development") {
+      console.error(error);
+    }
+
+    setError("An unexpected error has ocurred, please try again later.");
   };
 
   const addTodo = async (text: string) => {
@@ -75,10 +79,7 @@ export const useTodoList = () => {
     try {
       await localforage.setItem("todos", newTodoList);
     } catch (error) {
-      if (process.env.NODE_ENV === "development") {
-        console.error(error);
-      }
-      setError("An unexpected error has ocurred, please try again later.");
+      handleLocalDatabaseErrors(error as Error);
       setTodoList(previousTodoList);
     } finally {
       setIsLoading(false);
