@@ -16,6 +16,7 @@ export const App = () => {
     toggleTodo,
     deleteTodo,
     moveTodo,
+    clearError,
   } = useTodoList();
 
   const handleNewTodoTextChange = (e: FormEvent<HTMLInputElement>) => {
@@ -36,7 +37,9 @@ export const App = () => {
 
       <Main>
         <form onSubmit={handleSubmit}>
-          {error ? <ErrorAlertDialog message={error} /> : null}
+          {error ? (
+            <ErrorAlertDialog message={error} close={clearError} />
+          ) : null}
           <NewTodoTextInput
             newTodoText={newTodoText}
             onChange={handleNewTodoTextChange}
