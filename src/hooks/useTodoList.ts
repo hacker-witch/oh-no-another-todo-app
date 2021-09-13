@@ -103,6 +103,8 @@ export const useTodoList = () => {
     }
   };
 
+  const clearError = () => setError(null);
+
   return {
     todoList,
     isLoading,
@@ -111,5 +113,6 @@ export const useTodoList = () => {
     toggleTodo,
     deleteTodo,
     moveTodo,
+    clearError,
   };
 };
