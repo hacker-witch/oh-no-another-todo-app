@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import styled from "styled-components";
 import { TodoList } from "components/TodoList";
 import { NewTodoTextInput } from "components/NewTodoTextInput";
+import { ErrorAlertDialog } from "components/ErrorAlertDialog";
 import { useTodoList } from "hooks/useTodoList";
 import mobileBackground from "img/bg-mobile-light.jpg";
 
@@ -35,7 +36,7 @@ export const App = () => {
 
       <Main>
         <form onSubmit={handleSubmit}>
-          {error ? error : null}
+          {error ? <ErrorAlertDialog message={error} /> : null}
           <NewTodoTextInput
             newTodoText={newTodoText}
             onChange={handleNewTodoTextChange}
