@@ -23,7 +23,7 @@ export const ErrorAlertDialog = ({ message, close }: ErrorAlertDialogProps) => {
         <Contents>
           <Label>Error!</Label>
 
-          <AlertDialogDescription>{message}</AlertDialogDescription>
+          <Description>{message}</Description>
 
           <Button ref={closeButtonRef}>Close</Button>
         </Contents>
@@ -40,4 +40,8 @@ const Contents = styled(AlertDialogContent)`
 const Label = styled(AlertDialogLabel)`
   font-size: 1.5rem;
   color: #dc2626;
+`;
+
+const Description = styled(AlertDialogDescription)`
+  margin-top: 0.25rem;
 `;
