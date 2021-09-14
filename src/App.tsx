@@ -96,6 +96,6 @@ const Title = styled.h1`
 `;
 
 const Text = styled.p`
-  font-size: 0.728125;
+  font-size: 0.728125rem;
   text-align: center;
 `;
