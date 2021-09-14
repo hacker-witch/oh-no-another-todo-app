@@ -96,6 +96,7 @@ const Title = styled.h1`
 `;
 
 const Text = styled.p`
+  margin: 2.75rem 0 0 0;
   font-size: 0.728125rem;
   text-align: center;
   color: #9394a5;
