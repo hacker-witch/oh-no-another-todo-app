@@ -41,6 +41,7 @@ const Contents = styled(AlertDialogContent)`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  border-radius: 6px;
 `;
 
 const Label = styled(AlertDialogLabel)`
