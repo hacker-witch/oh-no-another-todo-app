@@ -34,10 +34,10 @@ export const ErrorAlertDialog = ({ message, close }: ErrorAlertDialogProps) => {
 
 const Contents = styled(AlertDialogContent)`
   width: 100%;
+  text-align: center;
 `;
 
 const Label = styled(AlertDialogLabel)`
-  text-align: center;
   font-size: 1.5rem;
   color: #dc2626;
 `;
