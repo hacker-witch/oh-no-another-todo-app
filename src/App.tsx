@@ -35,9 +35,9 @@ export const App = () => {
     <Wrapper>
       {error ? <ErrorAlertDialog message={error} close={clearError} /> : null}
 
-      <header>
+      <Header>
         <Title>TODO</Title> {isLoading ? <Spinner /> : null}
-      </header>
+      </Header>
 
       <Main>
         <form onSubmit={handleSubmit}>
@@ -71,6 +71,18 @@ const Wrapper = styled(Container)`
   background-size: 23.4375rem 12.5rem;
 `;
 
+const Header = styled.header`
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+
+  ${Spinner} {
+    position: relative;
+    top: -0.3125rem;
+    margin-left: 0.5rem;
+  }
+`;
+
 const Main = styled.main`
   & > form {
     margin-top: 2rem;
@@ -82,10 +94,10 @@ const Main = styled.main`
 `;
 
 const Title = styled.h1`
+  margin: 0;
   font-size: 1.6875rem;
   letter-spacing: 0.35em;
   color: #fff;
-  margin: 3rem 0 0 0;
 `;
 
 const Text = styled.p`
