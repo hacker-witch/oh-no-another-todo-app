@@ -64,10 +64,13 @@ export const App = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 1.5625rem;
+`;
+
+const Wrapper = styled(Container)`
   background-image: url(${mobileBackground});
   background-repeat: no-repeat;
   background-size: 23.4375rem 12.5rem;
