@@ -25,7 +25,9 @@ export const ErrorAlertDialog = ({ message, close }: ErrorAlertDialogProps) => {
 
           <Description>{message}</Description>
 
-          <Button ref={closeButtonRef}>Close</Button>
+          <Button ref={closeButtonRef} onClick={close}>
+            Close
+          </Button>
         </Contents>
       </Container>
     </AlertDialogOverlay>
