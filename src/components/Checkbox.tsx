@@ -8,12 +8,25 @@ type CheckboxProps = {
   className?: string;
   id: string;
   isChecked: boolean;
-  onChange: FormEventHandler<HTMLInputElement>;
+  isDisabled?: boolean;
+  onChange?: FormEventHandler<HTMLInputElement>;
 };
 
-const Checkbox = ({ className, id, isChecked, onChange }: CheckboxProps) => (
+const Checkbox = ({
+  className,
+  id,
+  isChecked,
+  isDisabled,
+  onChange,
+}: CheckboxProps) => (
   <div className={className}>
-    <Input id={id} type="checkbox" onChange={onChange} checked={isChecked} />
+    <Input
+      id={id}
+      type="checkbox"
+      onChange={onChange}
+      checked={isChecked}
+      disabled={isDisabled}
+    />
     <Control>
       <StyledCheckIcon />
     </Control>
