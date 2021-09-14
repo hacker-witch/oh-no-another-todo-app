@@ -34,6 +34,9 @@ export const ErrorAlertDialog = ({ message, close }: ErrorAlertDialogProps) => {
 
 const Contents = styled(AlertDialogContent)`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 `;
 
