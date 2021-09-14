@@ -51,4 +51,5 @@ const Description = styled(AlertDialogDescription)`
 
 const Button = styled(BaseButton)`
   margin-top: 0.75rem;
+  font-size: 1rem;
 `;
