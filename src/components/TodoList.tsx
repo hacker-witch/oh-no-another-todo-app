@@ -83,7 +83,7 @@ const StyledTodoList = styled(TodoList)`
     width: 100%;
     height: 1px;
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     background: #e5e5e5;
   }
