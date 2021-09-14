@@ -7,7 +7,7 @@ import {
   AlertDialogContent,
 } from "@reach/alert-dialog";
 import { Container } from "components/Container";
-import { Button } from "components/Button";
+import { Button as BaseButton } from "components/Button";
 
 type ErrorAlertDialogProps = {
   message: string;
@@ -47,4 +47,8 @@ const Label = styled(AlertDialogLabel)`
 
 const Description = styled(AlertDialogDescription)`
   margin-top: 0.25rem;
+`;
+
+const Button = styled(BaseButton)`
+  margin-top: 0.75rem;
 `;
