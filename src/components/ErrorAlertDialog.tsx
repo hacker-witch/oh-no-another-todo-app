@@ -21,13 +21,11 @@ export const ErrorAlertDialog = ({ message, close }: ErrorAlertDialogProps) => {
     <AlertDialogOverlay leastDestructiveRef={closeButtonRef}>
       <Container>
         <Contents>
-          <Button aria-label="close" ref={closeButtonRef}>
-            x
-          </Button>
-
           <AlertDialogLabel>Error!</AlertDialogLabel>
 
           <AlertDialogDescription>{message}</AlertDialogDescription>
+
+          <Button ref={closeButtonRef}>Close</Button>
         </Contents>
       </Container>
     </AlertDialogOverlay>
