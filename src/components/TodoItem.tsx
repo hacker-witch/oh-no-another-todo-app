@@ -71,6 +71,7 @@ const StyledTodoItem = styled(TodoItem)`
   align-items: center;
   justify-content: space-between;
   border-radius: 6px;
+  background: #fff;
   transition: 0.3s box-shadow;
 
   &:focus-visible {
