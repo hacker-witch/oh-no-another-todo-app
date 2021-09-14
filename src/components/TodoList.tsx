@@ -74,7 +74,18 @@ const StyledTodoList = styled(TodoList)`
   background: #fff;
 
   ${TodoItem} {
-    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+  }
+
+  ${TodoItem}::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #e5e5e5;
   }
 
   ${TodoItem}:last-child {
