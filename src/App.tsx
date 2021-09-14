@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import styled from "styled-components";
 import { Container } from "components/Container";
+import { Spinner } from "components/Spinner";
 import { TodoList } from "components/TodoList";
 import { NewTodoTextInput } from "components/NewTodoTextInput";
 import { ErrorAlertDialog } from "components/ErrorAlertDialog";
@@ -35,7 +36,7 @@ export const App = () => {
       {error ? <ErrorAlertDialog message={error} close={clearError} /> : null}
 
       <header>
-        <Title>TODO</Title> {isLoading ? "Loading..." : null}
+        <Title>TODO</Title> {isLoading ? <Spinner /> : null}
       </header>
 
       <Main>
