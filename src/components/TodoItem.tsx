@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Draggable } from "react-beautiful-dnd";
 import { Todo } from "types/Todo";
 import { Checkbox } from "components/Checkbox";
+import { Button } from "components/Button";
 import { ReactComponent as DeleteIcon } from "img/icon-cross.svg";
 
 export { StyledTodoItem as TodoItem };
@@ -51,13 +52,13 @@ const TodoItem = ({
             <LabelText wasCompleted={todo.wasCompleted}>{todo.text}</LabelText>
           </Label>
 
-          <DeleteButton
+          <Button
             type="button"
             aria-label="Delete this todo"
             onClick={handleDelete}
           >
             <StyledDeleteIcon />
-          </DeleteButton>
+          </Button>
         </li>
       )}
     </Draggable>
@@ -97,26 +98,6 @@ const LabelText = styled.span<LabelTextProps>`
   background-repeat: no-repeat;
   background-size: ${(props) => (props.wasCompleted ? "100% 1px" : "0% 1px")};
   transition: 0.3s background-size;
-`;
-
-const DeleteButton = styled.button`
-  display: flex;
-  align-items: center;
-  padding: 0.25rem;
-  border: 0;
-  background: none;
-  border-radius: 4px;
-  transition-duration: 0.3s;
-  transition-property: box-shadow, background-color;
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15);
-  }
-
-  &:active {
-    background-color: rgba(0, 0, 0, 0.15);
-  }
 `;
 
 const StyledDeleteIcon = styled(DeleteIcon)`
