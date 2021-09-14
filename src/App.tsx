@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import styled from "styled-components";
+import { Container } from "components/Container";
 import { TodoList } from "components/TodoList";
 import { NewTodoTextInput } from "components/NewTodoTextInput";
 import { ErrorAlertDialog } from "components/ErrorAlertDialog";
@@ -63,12 +64,6 @@ export const App = () => {
     </Wrapper>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0 1.5625rem;
-`;
 
 const Wrapper = styled(Container)`
   background-image: url(${mobileBackground});
