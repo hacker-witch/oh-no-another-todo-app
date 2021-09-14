@@ -18,7 +18,7 @@ export const ErrorAlertDialog = ({ message, close }: ErrorAlertDialogProps) => {
   const closeButtonRef = useRef(null);
 
   return (
-    <AlertDialogOverlay leastDestructiveRef={closeButtonRef}>
+    <AlertDialogOverlay leastDestructiveRef={closeButtonRef} onDismiss={close}>
       <Container>
         <Contents>
           <Label>Error!</Label>
