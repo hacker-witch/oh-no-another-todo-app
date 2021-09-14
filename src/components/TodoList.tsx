@@ -88,7 +88,7 @@ const StyledTodoList = styled(TodoList)`
     background: #e5e5e5;
   }
 
-  ${TodoItem}:last-child {
-    border-bottom: 0;
+  ${TodoItem}:last-child::after {
+    display: none;
   }
 `;
