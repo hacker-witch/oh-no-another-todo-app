@@ -32,15 +32,14 @@ export const App = () => {
 
   return (
     <Wrapper>
+      {error ? <ErrorAlertDialog message={error} close={clearError} /> : null}
+
       <header>
         <Title>TODO</Title> {isLoading ? "Loading..." : null}
       </header>
 
       <Main>
         <form onSubmit={handleSubmit}>
-          {error ? (
-            <ErrorAlertDialog message={error} close={clearError} />
-          ) : null}
           <NewTodoTextInput
             newTodoText={newTodoText}
             onChange={handleNewTodoTextChange}
