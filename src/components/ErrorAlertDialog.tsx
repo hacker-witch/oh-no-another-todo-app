@@ -38,4 +38,5 @@ const Contents = styled(AlertDialogContent)`
 
 const Label = styled(AlertDialogLabel)`
   text-align: center;
+  font-size: 1.5rem;
 `;
