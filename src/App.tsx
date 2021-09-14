@@ -55,11 +55,6 @@ export const App = () => {
         />
 
         <Text>Drag and drop to reorder list</Text>
-        <Text>
-          Press <kbd>space</kbd> in a todo and move it with the arrow keys to
-          reorder the list with the keyboard. To confirm the reordering, press{" "}
-          <kbd>space</kbd> again.
-        </Text>
       </Main>
     </Wrapper>
   );
