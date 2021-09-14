@@ -21,7 +21,7 @@ export const ErrorAlertDialog = ({ message, close }: ErrorAlertDialogProps) => {
     <AlertDialogOverlay leastDestructiveRef={closeButtonRef}>
       <Container>
         <Contents>
-          <AlertDialogLabel>Error!</AlertDialogLabel>
+          <Label>Error!</Label>
 
           <AlertDialogDescription>{message}</AlertDialogDescription>
 
@@ -34,4 +34,8 @@ export const ErrorAlertDialog = ({ message, close }: ErrorAlertDialogProps) => {
 
 const Contents = styled(AlertDialogContent)`
   width: 100%;
+`;
+
+const Label = styled(AlertDialogLabel)`
+  text-align: center;
 `;
