@@ -8,6 +8,7 @@ import {
 } from "@reach/alert-dialog";
 import { Container } from "components/Container";
 import { Button as BaseButton } from "components/Button";
+import "@reach/dialog/styles.css";
 
 type ErrorAlertDialogProps = {
   message: string;
