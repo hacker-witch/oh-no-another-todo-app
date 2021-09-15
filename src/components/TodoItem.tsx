@@ -35,12 +35,13 @@ const TodoItem = ({
 
   return (
     <Draggable draggableId={id} index={index}>
-      {(provided) => (
-        <li
+      {(provided, snapshot) => (
+        <Item
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
           className={className}
+          isDragging={snapshot.isDragging}
         >
           <Checkbox
             id={id}
@@ -59,7 +60,7 @@ const TodoItem = ({
           >
             <StyledDeleteIcon />
           </Button>
-        </li>
+        </Item>
       )}
     </Draggable>
   );
@@ -78,6 +79,14 @@ const StyledTodoItem = styled(TodoItem)`
     outline: none;
     box-shadow: inset 0 0 0 2px hsl(220, 98%, 61%);
   }
+`;
+
+type ItemProps = {
+  isDragging: boolean;
+};
+
+const Item = styled.li<ItemProps>`
+  opacity: ${(props) => (props.isDragging ? "0.5" : "1")};
 `;
 
 type LabelProps = {
